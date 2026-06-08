@@ -130,26 +130,38 @@
   }
 
   /* ──────────────────────────────────────────
-     5. CARTA TABS
+     5. CARTA — CATEGORY CARDS
   ────────────────────────────────────────── */
-  const tabs    = document.querySelectorAll('.tab');
-  const grids   = document.querySelectorAll('.menu-grid');
+  const catCards = document.querySelectorAll(".cat-card");
+  const grids    = document.querySelectorAll(".menu-grid");
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const cat = tab.dataset.cat;
+  function activateCat(cat, color) {
+    catCards.forEach(c => c.classList.remove("active"));
+    grids.forEach(g => g.classList.remove("active"));
+    const card = document.querySelector('[data-cat="' + cat + '"].cat-card');
+    if (card) card.classList.add("active");
+    const grid = document.getElementById("cat-" + cat);
+    if (grid) {
+      grid.classList.add("active");
+      const col = color || grid.dataset.color || "var(--accent)";
+      grid.style.setProperty("--panel-color", col);
+    }
+  }
 
-      tabs.forEach(t => t.classList.remove('active'));
-      grids.forEach(g => g.classList.remove('active'));
-
-      tab.classList.add('active');
-      const target = document.getElementById('cat-' + cat);
-      if (target) target.classList.add('active');
-
-      // Scroll tabs into view on mobile
-      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  catCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const cat   = card.dataset.cat;
+      const style = card.getAttribute("style") || "";
+      const match = style.match(/--cc:\s*([^;]+)/);
+      const color = match ? match[1].trim() : null;
+      activateCat(cat, color);
+      card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     });
   });
+
+  // Init first panel colour
+  const firstGrid = document.getElementById("cat-cafes");
+  if (firstGrid) firstGrid.style.setProperty("--panel-color", "#7B4F2E");
 
   /* ──────────────────────────────────────────
      6. CONTACT FORM
