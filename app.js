@@ -1,85 +1,12 @@
 /* ============================================
    CORTIJO — app.js
-   SPA navigation · Animations · Form
    ============================================ */
-
 (function () {
   'use strict';
 
-  /* ──────────────────────────────────────────
-     1. PAGE NAVIGATION
-  ────────────────────────────────────────── */
-  const pages    = document.querySelectorAll('.page');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-
-  function showPage(pageId) {
-    pages.forEach(p => p.classList.remove('active'));
-    navLinks.forEach(l => l.classList.remove('active'));
-
-    const target = document.getElementById(pageId);
-    if (target) {
-      target.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      // Trigger reveal animations for the new page
-      setTimeout(() => triggerReveal(target), 80);
-    }
-
-    navLinks.forEach(l => {
-      if (l.dataset.page === pageId) l.classList.add('active');
-    });
-
-    // Close mobile menu if open
-    closeMobileMenu();
-  }
-
-  // Nav links (desktop)
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const page = link.dataset.page;
-      if (page) showPage(page);
-    });
-  });
-
-  // Mobile links
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const href = link.getAttribute('href').replace('#', '');
-      showPage(href);
-    });
-  });
-
-  // Logo → home
-  document.querySelector('.nav-logo').addEventListener('click', () => showPage('inicio'));
-
-  // Inline buttons with data-page
-  document.querySelectorAll('[data-page]').forEach(el => {
-    if (!el.classList.contains('nav-link')) {
-      el.addEventListener('click', e => {
-        const page = el.dataset.page;
-        if (page) { e.preventDefault(); showPage(page); }
-      });
-    }
-  });
-
-  // Handle hash on load
-  const hash = window.location.hash.replace('#', '') || 'inicio';
-  showPage(hash);
-
-  /* ──────────────────────────────────────────
-     2. HAMBURGER MENU
-  ────────────────────────────────────────── */
-  const hamburger  = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  hamburger.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
+  /* ─── HAMBURGUESA (definida primero para que showPage pueda usarla) ─── */
+  var hamburger  = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
 
   function closeMobileMenu() {
     mobileMenu.classList.remove('open');
@@ -87,183 +14,217 @@
     document.body.style.overflow = '';
   }
 
-  // Close on outside click
-  document.addEventListener('click', e => {
+  hamburger.addEventListener('click', function() {
+    var open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  document.addEventListener('click', function(e) {
     if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
       closeMobileMenu();
     }
   });
 
-  /* ──────────────────────────────────────────
-     3. NAVBAR SCROLL SHADOW
-  ────────────────────────────────────────── */
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
+  /* ─── NAVEGACIÓN SPA ─── */
+  var pages    = document.querySelectorAll('.page');
+  var navLinks = document.querySelectorAll('.nav-link');
 
-  /* ──────────────────────────────────────────
-     4. REVEAL ON SCROLL (IntersectionObserver)
-  ────────────────────────────────────────── */
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          // Stagger siblings slightly
-          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
-          const idx = siblings.indexOf(entry.target);
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, idx * 80);
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  function triggerReveal(container) {
-    container.querySelectorAll('.reveal').forEach(el => {
-      el.classList.remove('visible');
-      revealObserver.observe(el);
+  function showPage(id) {
+    pages.forEach(function(p) {
+      p.style.display = 'none';
+      p.classList.remove('active');
     });
+    navLinks.forEach(function(l) { l.classList.remove('active'); });
+
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    target.style.display = 'block';
+    target.classList.add('active');
+    window.scrollTo(0, 0);
+
+    navLinks.forEach(function(l) {
+      if (l.dataset.page === id) l.classList.add('active');
+    });
+
+    // Animar .reveal con escalonado
+    target.querySelectorAll('.reveal').forEach(function(el, i) {
+      el.style.opacity   = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease ' + (i * 60) + 'ms, transform 0.5s ease ' + (i * 60) + 'ms';
+      setTimeout(function() {
+        el.style.opacity   = '1';
+        el.style.transform = 'translateY(0)';
+      }, 30);
+    });
+
+    closeMobileMenu();
   }
 
-  /* ──────────────────────────────────────────
-     5. CARTA — CATEGORY CARDS
-  ────────────────────────────────────────── */
-  const catCards = document.querySelectorAll(".cat-card");
-  const grids    = document.querySelectorAll(".menu-grid");
-
-  function activateCat(cat, color) {
-    catCards.forEach(c => c.classList.remove("active"));
-    grids.forEach(g => g.classList.remove("active"));
-    const card = document.querySelector('[data-cat="' + cat + '"].cat-card');
-    if (card) card.classList.add("active");
-    const grid = document.getElementById("cat-" + cat);
-    if (grid) {
-      grid.classList.add("active");
-      const col = color || grid.dataset.color || "var(--accent)";
-      grid.style.setProperty("--panel-color", col);
-    }
-  }
-
-  catCards.forEach(card => {
-    card.addEventListener("click", () => {
-      const cat   = card.dataset.cat;
-      const style = card.getAttribute("style") || "";
-      const match = style.match(/--cc:\s*([^;]+)/);
-      const color = match ? match[1].trim() : null;
-      activateCat(cat, color);
-      card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  // Nav links escritorio
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (link.dataset.page) showPage(link.dataset.page);
     });
   });
 
-  // Init first panel colour
-  const firstGrid = document.getElementById("cat-cafes");
-  if (firstGrid) firstGrid.style.setProperty("--panel-color", "#7B4F2E");
+  // Nav links móvil
+  document.querySelectorAll('.mobile-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      showPage(link.getAttribute('href').replace('#', ''));
+    });
+  });
 
-  /* ──────────────────────────────────────────
-     6. CONTACT FORM
-  ────────────────────────────────────────── */
-  const form        = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
+  // Logo → Inicio
+  document.querySelector('.nav-logo').addEventListener('click', function() {
+    showPage('inicio');
+  });
+
+  // Cualquier elemento con data-page (ej: botón "Ver la carta")
+  document.querySelectorAll('[data-page]').forEach(function(el) {
+    if (!el.classList.contains('nav-link')) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(el.dataset.page);
+      });
+    }
+  });
+
+  /* ─── NAVBAR SOMBRA AL HACER SCROLL ─── */
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ─── TARJETAS DE CATEGORÍA (CARTA) ─── */
+  var catCards  = document.querySelectorAll('.cat-card');
+  var menuGrids = document.querySelectorAll('.menu-grid');
+
+  // Construir mapa de colores desde data-color de cada grid
+  var colorMap = {};
+  menuGrids.forEach(function(g) {
+    colorMap[g.id.replace('cat-', '')] = g.dataset.color || '#b8341b';
+  });
+
+  function activateCat(cat) {
+    // Quitar active de todas las tarjetas
+    catCards.forEach(function(c) { c.classList.remove('active'); });
+
+    // Ocultar todos los grids
+    menuGrids.forEach(function(g) { g.style.display = 'none'; });
+
+    // Marcar tarjeta activa
+    var card = document.querySelector('.cat-card[data-cat="' + cat + '"]');
+    if (card) card.classList.add('active');
+
+    // Mostrar grid con animación
+    var grid = document.getElementById('cat-' + cat);
+    if (!grid) return;
+
+    grid.style.display    = 'block';
+    grid.style.setProperty('--panel-color', colorMap[cat] || '#b8341b');
+    grid.style.opacity    = '0';
+    grid.style.transform  = 'translateY(14px)';
+    grid.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+    setTimeout(function() {
+      grid.style.opacity   = '1';
+      grid.style.transform = 'translateY(0)';
+    }, 20);
+  }
+
+  catCards.forEach(function(card) {
+    card.addEventListener('click', function() {
+      activateCat(card.dataset.cat);
+    });
+  });
+
+  /* ─── FORMULARIO DE CONTACTO ─── */
+  var form        = document.getElementById('contactForm');
+  var formSuccess = document.getElementById('formSuccess');
 
   if (form) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const nombre  = form.querySelector('#nombre').value.trim();
-      const email   = form.querySelector('#email').value.trim();
-      const mensaje = form.querySelector('#mensaje').value.trim();
+      var campos = ['#nombre', '#email', '#mensaje'];
+      var valid  = true;
 
-      // Basic validation
-      let valid = true;
-      [form.querySelector('#nombre'), form.querySelector('#email'), form.querySelector('#mensaje')]
-        .forEach(input => {
-          if (!input.value.trim()) {
-            input.style.borderColor = '#c0392b';
-            valid = false;
-          } else {
-            input.style.borderColor = '';
-          }
-        });
-
+      campos.forEach(function(sel) {
+        var input = form.querySelector(sel);
+        if (!input.value.trim()) {
+          input.style.borderColor = '#c0392b';
+          valid = false;
+        } else {
+          input.style.borderColor = '';
+        }
+      });
       if (!valid) return;
 
-      // Email format check
-      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const emailEl = form.querySelector('#email');
-      if (!emailRe.test(email)) {
+      var emailEl = form.querySelector('#email');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
         emailEl.style.borderColor = '#c0392b';
         return;
       }
 
-      const btn = form.querySelector('.btn-submit');
+      var btn = form.querySelector('.btn-submit');
       btn.textContent = 'Enviando…';
-      btn.disabled = true;
+      btn.disabled    = true;
 
       try {
-        const res = await fetch('https://formspree.io/f/xlgkbnda', {
-          method: 'POST',
+        var res = await fetch('https://formspree.io/f/xlgkbnda', {
+          method:  'POST',
           headers: { 'Accept': 'application/json' },
-          body: new FormData(form)
+          body:    new FormData(form)
         });
-
         if (res.ok) {
           form.reset();
           formSuccess.classList.add('show');
-          setTimeout(() => formSuccess.classList.remove('show'), 5000);
+          setTimeout(function() { formSuccess.classList.remove('show'); }, 5000);
         } else {
-          alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+          alert('Error al enviar. Inténtalo de nuevo.');
         }
       } catch (err) {
-        alert('No se pudo conectar. Comprueba tu conexión e inténtalo de nuevo.');
+        alert('Sin conexión. Inténtalo de nuevo.');
       }
 
       btn.textContent = 'Enviar mensaje';
-      btn.disabled = false;
+      btn.disabled    = false;
     });
 
-    // Clear red border on input
-    form.querySelectorAll('input, textarea').forEach(el => {
-      el.addEventListener('input', () => { el.style.borderColor = ''; });
+    form.querySelectorAll('input, textarea').forEach(function(el) {
+      el.addEventListener('input', function() { el.style.borderColor = ''; });
     });
   }
 
-  /* ──────────────────────────────────────────
-     7. HERO CARD PARALLAX (subtle)
-  ────────────────────────────────────────── */
-  const heroCard = document.querySelector('.hero-card');
+  /* ─── PARALLAX HERO CARD ─── */
+  var heroCard = document.querySelector('.hero-card');
   if (heroCard) {
-    document.addEventListener('mousemove', e => {
-      const page = document.getElementById('inicio');
-      if (!page || !page.classList.contains('active')) return;
-
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
-      const dx = (e.clientX - cx) / cx;
-      const dy = (e.clientY - cy) / cy;
-      heroCard.style.transform = `
-        perspective(800px)
-        rotateY(${dx * 6}deg)
-        rotateX(${-dy * 4}deg)
-        translateY(-2px)
-      `;
+    document.addEventListener('mousemove', function(e) {
+      var inicio = document.getElementById('inicio');
+      if (!inicio || !inicio.classList.contains('active')) return;
+      var dx = (e.clientX - window.innerWidth  / 2) / (window.innerWidth  / 2);
+      var dy = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+      heroCard.style.transform =
+        'perspective(800px) rotateY(' + (dx * 6) + 'deg) rotateX(' + (-dy * 4) + 'deg) translateY(-2px)';
     });
-
-    heroCard.addEventListener('mouseleave', () => {
-      heroCard.style.transform = '';
+    heroCard.addEventListener('mouseleave', function() {
       heroCard.style.transition = 'transform 0.8s ease';
-      setTimeout(() => { heroCard.style.transition = ''; }, 800);
+      heroCard.style.transform  = '';
+      setTimeout(function() { heroCard.style.transition = ''; }, 800);
     });
   }
 
-  /* ──────────────────────────────────────────
-     8. STAGGER HIGHLIGHT ITEMS
-  ────────────────────────────────────────── */
-  document.querySelectorAll('.highlight').forEach((el, i) => {
+  /* ─── HIGHLIGHTS ESCALONADO ─── */
+  document.querySelectorAll('.highlight').forEach(function(el, i) {
     el.style.setProperty('--i', i);
   });
+
+  /* ─── ARRANQUE: mostrar inicio y activar Cafés ─── */
+  showPage('inicio');
+  activateCat('cafes');
 
 })();

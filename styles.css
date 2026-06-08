@@ -309,15 +309,9 @@ a { color: inherit; text-decoration: none; }
   color: var(--panel-color, var(--accent));
 }
 
+/* menu-grid: JS controla display directamente */
 .menu-grid {
   display: none;
-  animation: slideUp 0.35s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
-}
-.menu-grid.active { display: block; }
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 .menu-item {
@@ -519,4 +513,11 @@ footer {
   .carta-content { padding: 0 1rem 4rem; }
   .cat-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); padding: 1rem; }
   .wine-prices { flex-direction: column; gap: 0.15rem; }
+}
+
+/* ── Always-visible elements (no reveal animation) ── */
+.carta-hero,
+.cat-grid {
+  opacity: 1 !important;
+  transform: none !important;
 }
