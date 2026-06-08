@@ -191,14 +191,26 @@
       btn.textContent = 'Enviando…';
       btn.disabled = true;
 
-      // Simulate send (replace with real API call when backend is ready)
-      await new Promise(r => setTimeout(r, 900));
+      try {
+        const res = await fetch('https://formspree.io/f/xlgkbnda', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
 
-      form.reset();
+        if (res.ok) {
+          form.reset();
+          formSuccess.classList.add('show');
+          setTimeout(() => formSuccess.classList.remove('show'), 5000);
+        } else {
+          alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+        }
+      } catch (err) {
+        alert('No se pudo conectar. Comprueba tu conexión e inténtalo de nuevo.');
+      }
+
       btn.textContent = 'Enviar mensaje';
       btn.disabled = false;
-      formSuccess.classList.add('show');
-      setTimeout(() => formSuccess.classList.remove('show'), 5000);
     });
 
     // Clear red border on input
