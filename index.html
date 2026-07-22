@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2829165017086041"
-     crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cortijo — Cafeterías & Cervezerías</title>
+  <title>Cortijo — Cafeterías & Cervezerías · Gijón</title>
+  <meta name="description" content="Cortijo Cafeterías y Cervezerías en Gijón. Cafés, pinchos, bocadillos, cachopos y más. C/ Dos de mayo 26." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  
 </head>
 <body>
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">
-      <svg width="32" height="32" viewBox="0 0 60 60" fill="none">
-        <rect x="15" y="5" width="30" height="30" rx="2" transform="rotate(45 30 20)" fill="var(--accent)"/>
-        <rect x="20" y="10" width="20" height="20" rx="2" transform="rotate(45 30 20)" fill="var(--bg)"/>
-        <rect x="25" y="15" width="10" height="10" rx="1" transform="rotate(45 30 20)" fill="var(--accent)"/>
+    <a href="index.html" class="nav-logo">
+      <svg width="30" height="30" viewBox="0 0 60 60" fill="none">
+        <rect x="15" y="5" width="30" height="30" rx="2" transform="rotate(45 30 20)" fill="#b8341b"/>
+        <rect x="20" y="10" width="20" height="20" rx="2" transform="rotate(45 30 20)" fill="#faf8f4"/>
+        <rect x="25" y="15" width="10" height="10" rx="1" transform="rotate(45 30 20)" fill="#b8341b"/>
       </svg>
       <span class="nav-brand">CORTIJO</span>
-    </div>
+    </a>
     <ul class="nav-links">
-      <li><a href="#inicio" class="nav-link active" data-page="inicio">Inicio</a></li>
-      <li><a href="#carta" class="nav-link" data-page="carta">Carta</a></li>
-      <li><a href="#nosotros" class="nav-link" data-page="nosotros">Nosotros</a></li>
-      <li><a href="#contacto" class="nav-link" data-page="contacto">Contacto</a></li>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="carta.html">Carta</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
       <span></span><span></span><span></span>
@@ -36,17 +34,16 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="#inicio" class="mobile-link">Inicio</a></li>
-      <li><a href="#carta" class="mobile-link">Carta</a></li>
-      <li><a href="#nosotros" class="mobile-link">Nosotros</a></li>
-      <li><a href="#contacto" class="mobile-link">Contacto</a></li>
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="carta.html">Carta</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </div>
 
-  <!-- ═══════════════ PAGE: INICIO ═══════════════ -->
-  <section id="inicio" class="page active">
-    <div class="hero">
-      <div class="hero-bg"></div>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
       <div class="hero-content">
         <p class="hero-sub reveal">Cafeterías &amp; Cervezerías · Gijón</p>
         <h1 class="hero-title reveal">
@@ -55,32 +52,50 @@
           <span>momento</span>
         </h1>
         <p class="hero-desc reveal">Desde el primer café de la mañana hasta la última cerveza de la noche. Bienvenido al Cortijo.</p>
-        <a href="#carta" class="btn-primary reveal" data-page="carta">Ver la carta</a>
+        <a href="carta.html" class="btn reveal">Ver la carta</a>
       </div>
-      <div class="hero-image reveal">
-        <div class="hero-card">
+      <div class="hero-visual reveal">
+        <div class="hero-card" id="heroCard">
           <div class="hero-card-inner">
             <svg width="80" height="80" viewBox="0 0 60 60" fill="none">
-              <rect x="10" y="2" width="40" height="40" rx="2" transform="rotate(45 30 22)" fill="var(--accent)" opacity="0.12"/>
-              <rect x="16" y="8" width="28" height="28" rx="2" transform="rotate(45 30 22)" fill="var(--accent)" opacity="0.25"/>
-              <rect x="22" y="14" width="16" height="16" rx="1" transform="rotate(45 30 22)" fill="var(--accent)"/>
+              <rect x="10" y="2" width="40" height="40" rx="2" transform="rotate(45 30 22)" fill="#b8341b" opacity="0.12"/>
+              <rect x="16" y="8" width="28" height="28" rx="2" transform="rotate(45 30 22)" fill="#b8341b" opacity="0.25"/>
+              <rect x="22" y="14" width="16" height="16" rx="1" transform="rotate(45 30 22)" fill="#b8341b"/>
             </svg>
-            <p class="hero-card-text">CORTIJO</p>
+            <p class="hero-card-name">CORTIJO</p>
             <p class="hero-card-sub">Est. Gijón</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
+    <!-- HIGHLIGHTS -->
     <div class="highlights">
-      <div class="highlight reveal"><span class="highlight-num">01</span><h3>Cafés de especialidad</h3><p>Desde 1,40 € · Solos, con leche, capuchinos o con un toque de Baileys</p></div>
-      <div class="highlight reveal"><span class="highlight-num">02</span><h3>Platos combinados</h3><p>14 combinados diferentes · Cocina casera y generosa</p></div>
-      <div class="highlight reveal"><span class="highlight-num">03</span><h3>Cachopos asturianos</h3><p>El plato más asturiano · Ternera o pollo a 14,50 €</p></div>
-      <div class="highlight reveal"><span class="highlight-num">04</span><h3>Cervezas &amp; vinos</h3><p>Amplia selección desde Estrella Galicia hasta Grimbergen</p></div>
+      <div class="highlight reveal">
+        <span class="highlight-num">01</span>
+        <h3>Cafés de especialidad</h3>
+        <p>Desde 1,40 € · Solos, con leche, capuchinos o con un toque de Baileys</p>
+      </div>
+      <div class="highlight reveal">
+        <span class="highlight-num">02</span>
+        <h3>Platos combinados</h3>
+        <p>14 combinados diferentes · Cocina casera y generosa</p>
+      </div>
+      <div class="highlight reveal">
+        <span class="highlight-num">03</span>
+        <h3>Cachopos asturianos</h3>
+        <p>El plato más asturiano · Ternera o pollo a 14,50 €</p>
+      </div>
+      <div class="highlight reveal">
+        <span class="highlight-num">04</span>
+        <h3>Cervezas &amp; vinos</h3>
+        <p>Amplia selección desde Estrella Galicia hasta Grimbergen</p>
+      </div>
     </div>
 
+    <!-- ALLERGEN STRIP -->
     <div class="allergen-strip reveal">
-      <p class="allergen-title">Información de alérgenos disponible · Reglamento (EU) Nº 1169/2011</p>
+      <p>Información de alérgenos disponible · Reglamento (EU) Nº 1169/2011</p>
       <div class="allergen-icons">
         <div class="allerg"><span>🥜</span><small>Cacahuetes</small></div>
         <div class="allerg"><span>🌰</span><small>Frutos c. cáscara</small></div>
@@ -95,340 +110,39 @@
       </div>
       <p class="allergen-note">Consulte a nuestro personal de sala para información detallada</p>
     </div>
-  </section>
+  </main>
 
-  <!-- ═══════════════ PAGE: CARTA ═══════════════ -->
-  <section id="carta" class="page">
-    <div class="carta-hero">
-      <h2>Nuestra Carta</h2>
-      <p>Todos los platos también se sirven para llevar</p>
-    </div>
-
-    <div class="cat-grid">
-      <button class="cat-card active" data-cat="cafes"       style="--cc:#7B4F2E;--cl:#F5E6D3"><span class="cat-emoji">☕</span><span class="cat-label">Cafés</span></button>
-      <button class="cat-card"        data-cat="pinchos"     style="--cc:#C45C1A;--cl:#FDEBD0"><span class="cat-emoji">🥖</span><span class="cat-label">Pinchos</span></button>
-      <button class="cat-card"        data-cat="bocadillos"  style="--cc:#A0522D;--cl:#F9E4CE"><span class="cat-emoji">🥪</span><span class="cat-label">Bocadillos</span></button>
-      <button class="cat-card"        data-cat="sandwiches"  style="--cc:#C8860A;--cl:#FEF3D0"><span class="cat-emoji">🥙</span><span class="cat-label">Sandwiches</span></button>
-      <button class="cat-card"        data-cat="hamburguesas"style="--cc:#B8341B;--cl:#FBDDD8"><span class="cat-emoji">🍔</span><span class="cat-label">Hamburguesas</span></button>
-      <button class="cat-card"        data-cat="combinados"  style="--cc:#5D7A3E;--cl:#E6F0DA"><span class="cat-emoji">🍳</span><span class="cat-label">Combinados</span></button>
-      <button class="cat-card"        data-cat="raciones"    style="--cc:#3A6B8A;--cl:#D6EAF5"><span class="cat-emoji">🫕</span><span class="cat-label">Raciones</span></button>
-      <button class="cat-card"        data-cat="tostas"      style="--cc:#8B6914;--cl:#F5EDCC"><span class="cat-emoji">🍞</span><span class="cat-label">Tostas &amp; Sartenes</span></button>
-      <button class="cat-card"        data-cat="cachopos"    style="--cc:#8B1A1A;--cl:#F5D5D5"><span class="cat-emoji">🥩</span><span class="cat-label">Cachopos</span></button>
-      <button class="cat-card"        data-cat="meriendas"   style="--cc:#9B4D8A;--cl:#F3DDF0"><span class="cat-emoji">🧁</span><span class="cat-label">Meriendas</span></button>
-      <button class="cat-card"        data-cat="helados"     style="--cc:#2176AE;--cl:#D3EAF9"><span class="cat-emoji">🍦</span><span class="cat-label">Helados</span></button>
-      <button class="cat-card"        data-cat="cervezas"    style="--cc:#B8780A;--cl:#FEF0CC"><span class="cat-emoji">🍺</span><span class="cat-label">Cervezas</span></button>
-      <button class="cat-card"        data-cat="vinos"       style="--cc:#6B2D5E;--cl:#F0D8EA"><span class="cat-emoji">🍷</span><span class="cat-label">Vinos</span></button>
-    </div>
-
-    <div class="carta-content">
-
-      <!-- CAFES -->
-      <div class="menu-grid" id="cat-cafes" data-color="#7B4F2E" data-emoji="☕" data-title="Cafés">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">☕</span><h3 class="menu-panel-title">Cafés</h3></div>
-        <div class="menu-item"><span class="item-name">Café solo o cortado</span><span class="item-price">1,40 €</span></div>
-        <div class="menu-item"><span class="item-name">Café con leche</span><span class="item-price">1,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Café americano</span><span class="item-price">1,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Café mediano</span><span class="item-price">1,60 €</span></div>
-        <div class="menu-item"><span class="item-name">Café doble carga solo, cortado o con leche</span><span class="item-price">2,40 €</span></div>
-        <div class="menu-item"><span class="item-name">Café grande con leche</span><span class="item-price">2,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Café con hielo y Baileys</span><span class="item-price">3,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Café mediano con hielo y Baileys</span><span class="item-price">3,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Capuchino</span><span class="item-price">2,40 €</span></div>
-        <div class="menu-item"><span class="item-name">Capuchino Especial</span><span class="item-price">2,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Café Bombón</span><span class="item-price">2,90 €</span></div>
-        <div class="menu-item"><span class="item-name">Café Vienés</span><span class="item-price">2,90 €</span></div>
-        <div class="menu-item"><span class="item-name">Carajillo</span><span class="item-price">3,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Carajillo Especial</span><span class="item-price">3,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Irlandés</span><span class="item-price">4,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Chocolate</span><span class="item-price">2,40 €</span></div>
-        <div class="menu-item"><span class="item-name">Chocolate Suizo</span><span class="item-price">2,80 €</span></div>
-      </div>
-
-      <!-- PINCHOS -->
-      <div class="menu-grid" id="cat-pinchos" data-color="#C45C1A">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🥖</span><h3 class="menu-panel-title">Pinchos</h3></div>
-        <div class="menu-item"><span class="item-name">Pollo o lomo con lechuga y mayonesa <em class="allerg-tag">🥚🌾</em></span><span class="item-price">2,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Pollo, lomo o bacon con queso <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">2,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Bacon o fiambre de lomo con huevo <em class="allerg-tag">🥚🌾</em></span><span class="item-price">2,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Francesa de chorizo, jamón serrano o bonito <em class="allerg-tag">🥚🌾</em></span><span class="item-price">2,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Tortilla de patata <em class="allerg-tag">🥚</em></span><span class="item-price">2,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Tortilla de patata vegetal con jamón york, queso y mayonesa <em class="allerg-tag">🥚🥛</em></span><span class="item-price">2,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Ternera rebosada con pimientos <em class="allerg-tag">🥚🌾</em></span><span class="item-price">2,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Filete de pollo a la plancha <em class="allerg-tag">🥚</em></span><span class="item-price">2,40 €</span></div>
-        <div class="menu-item"><span class="item-name">Carne guisada <em class="allerg-tag">🌾</em></span><span class="item-price">2,50 €</span></div>
-      </div>
-
-      <!-- BOCADILLOS -->
-      <div class="menu-grid" id="cat-bocadillos" data-color="#A0522D">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🥪</span><h3 class="menu-panel-title">Bocadillos</h3></div>
-        <div class="menu-item"><span class="item-name">Pollo con lechuga, tomate y mayonesa <em class="allerg-tag">🥚</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Pollo con queso <em class="allerg-tag">🥚🥛</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Pollo con queso, lechuga, tomate y mayonesa <em class="allerg-tag">🥚🥛</em></span><span class="item-price">4,30 €</span></div>
-        <div class="menu-item"><span class="item-name">Lomo con lechuga, tomate y mayonesa <em class="allerg-tag">🥚</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Lomo con queso <em class="allerg-tag">🥚🥛</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Lomo con queso, lechuga, tomate y mayonesa <em class="allerg-tag">🥚🥛</em></span><span class="item-price">4,30 €</span></div>
-        <div class="menu-item"><span class="item-name">Bacon con queso <em class="allerg-tag">🥚🥛</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Bacon con huevos <em class="allerg-tag">🥚🌾</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Francesa con chorizo o jamón <em class="allerg-tag">🥚🌾</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Francesa con bonito <em class="allerg-tag">🥚🌾</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Tortilla de patata española <em class="allerg-tag">🥚🌾</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Jamón serrano <em class="allerg-tag">🌾</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Bonito con lechuga, tomate y mayonesa <em class="allerg-tag">🐟🥚🌾</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Pepito de ternera <em class="allerg-tag">🌾</em></span><span class="item-price">4,50 €</span></div>
-      </div>
-
-      <!-- SANDWICHES -->
-      <div class="menu-grid" id="cat-sandwiches" data-color="#C8860A">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🥙</span><h3 class="menu-panel-title">Sandwiches</h3></div>
-        <div class="menu-item"><span class="item-name">Nº1 · Mixto — Jamón York y queso <em class="allerg-tag">🥚🌾🥛</em></span><span class="item-price">2,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº2 · Mixto con huevo <em class="allerg-tag">🥚🌾🥛</em></span><span class="item-price">3,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº3 · Mixto vegetal — Lechuga, tomate, jamón york, queso, huevo frito y mayonesa <em class="allerg-tag">🥚🌾🥛</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº4 · Vegetal con bonito — Lechuga, tomate, huevo cocido, bonito y mayonesa <em class="allerg-tag">🐟🥚🌾</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº5 · Lomo con queso <em class="allerg-tag">🥚🌾</em></span><span class="item-price">3,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº6 · Vegetal de pollo — Lechuga, tomate, pechuga a la plancha, queso y mayonesa <em class="allerg-tag">🥚🌾🥛</em></span><span class="item-price">4,30 €</span></div>
-        <div class="menu-item featured"><span class="item-name">Nº7 · Combinado — Mixto con huevo frito, patatas y ensalada <em class="allerg-tag">🥚🌾🥛</em></span><span class="item-price">7,20 €</span></div>
-      </div>
-
-      <!-- HAMBURGUESAS -->
-      <div class="menu-grid" id="cat-hamburguesas" data-color="#B8341B">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🍔</span><h3 class="menu-panel-title">Hamburguesas</h3></div>
-        <div class="menu-item"><span class="item-name">De ternera — Tomate, queso chédar y cebolla caramelizada <em class="allerg-tag">🥚🥛</em></span><span class="item-price">6,00 €</span></div>
-        <div class="menu-item featured"><span class="item-name">De ternera + patatas fritas <em class="allerg-tag">🥚🥛</em></span><span class="item-price">8,20 €</span></div>
-        <div class="menu-item"><span class="item-name">De pollo — Lechuga, tomate, queso chédar, bacon y cebolla caramelizada <em class="allerg-tag">🥚🥛</em></span><span class="item-price">6,00 €</span></div>
-        <div class="menu-item featured"><span class="item-name">De pollo + patatas fritas <em class="allerg-tag">🥚🥛</em></span><span class="item-price">8,20 €</span></div>
-      </div>
-
-      <!-- COMBINADOS -->
-      <div class="menu-grid" id="cat-combinados" data-color="#5D7A3E">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🍳</span><h3 class="menu-panel-title">Platos Combinados</h3></div>
-        <div class="menu-item"><span class="item-name">Nº1 · Criollo, patatas y dos huevos fritos <em class="allerg-tag">🥚</em></span><span class="item-price">7,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº2 · Chorizo, patatas y dos huevos fritos <em class="allerg-tag">🥚</em></span><span class="item-price">7,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº3 · Bacon, patatas y dos huevos fritos <em class="allerg-tag">🥚</em></span><span class="item-price">7,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº4 · Jamón serrano, patatas y dos huevos fritos <em class="allerg-tag">🥚</em></span><span class="item-price">7,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº5 · San Jacobo, patatas y dos huevos fritos <em class="allerg-tag">🥚🥛</em></span><span class="item-price">8,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº6 · Francesa con jamón york, salchichas frankfurt y patatas fritas <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">7,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº7 · Tortilla de patata + ensalada mixta <em class="allerg-tag">🥚</em></span><span class="item-price">8,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº8 · Lomo a la plancha, patatas fritas, huevo y ensalada <em class="allerg-tag">🥚</em></span><span class="item-price">9,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº9 · Pechuga de pollo a la plancha, patatas y ensalada</span><span class="item-price">9,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº10 · Escalope de pollo, patatas fritas y ensalada de tomate <em class="allerg-tag">🥚🌾</em></span><span class="item-price">9,30 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº11 · Filete de ternera a la plancha, ensalada, huevo y patatas fritas <em class="allerg-tag">🥚</em></span><span class="item-price">10,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº12 · Escalope de ternera, patatas fritas y croquetas <em class="allerg-tag">🥚🥛</em></span><span class="item-price">10,50 €</span></div>
-        <div class="menu-item featured"><span class="item-name">Nº13 · Escalopines de ternera con salsa de queso azul y patatas fritas <em class="allerg-tag">🥚🥛</em></span><span class="item-price">12,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Nº14 · Revuelto de champiñones con patatas fritas <em class="allerg-tag">🥚</em></span><span class="item-price">9,50 €</span></div>
-        <div class="menu-item note-item"><span class="item-name">Ración de pan</span><span class="item-price">0,60 €</span></div>
-      </div>
-
-      <!-- RACIONES -->
-      <div class="menu-grid" id="cat-raciones" data-color="#3A6B8A">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🫕</span><h3 class="menu-panel-title">Raciones</h3></div>
-        <div class="menu-item"><span class="item-name">Ensalada normal LTC</span><span class="item-price">5,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Ensalada mixta <em class="allerg-tag">🥚🌾</em></span><span class="item-price">7,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Ensalada de jamón serrano con tomate</span><span class="item-price">8,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Porción de patatas fritas</span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Ración de patatas fritas</span><span class="item-price">6,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Patatas tres salsas — alioli, brava y queso azul <em class="allerg-tag">🥛</em></span><span class="item-price">8,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Patatas fritas con queso azul <em class="allerg-tag">🥛</em></span><span class="item-price">7,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Patatas fritas con salsa brava</span><span class="item-price">7,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Patatas fritas con alioli <em class="allerg-tag">🥛</em></span><span class="item-price">7,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Jamón serrano</span><span class="item-price">7,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Queso manchego <em class="allerg-tag">🥛</em></span><span class="item-price">7,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Croquetas <em class="allerg-tag">🥚🥛</em></span><span class="item-price">6,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Empanadillas <em class="allerg-tag">🥚🌾</em></span><span class="item-price">6,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Gambas a la gabardina <em class="allerg-tag">🦀🌾</em></span><span class="item-price">7,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Nuggets de pollo <em class="allerg-tag">🌾</em></span><span class="item-price">6,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Tortilla de patata española mediana <em class="allerg-tag">🥚</em></span><span class="item-price">13,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Tortilla de patata española grande <em class="allerg-tag">🥚</em></span><span class="item-price">15,00 €</span></div>
-        <div class="menu-item section-header"><span>Para llevar</span></div>
-        <div class="menu-item"><span class="item-name">Tortilla de patata española mediana <em class="allerg-tag">🥚</em></span><span class="item-price">12,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Tortilla de patata española grande <em class="allerg-tag">🥚</em></span><span class="item-price">14,00 €</span></div>
-      </div>
-
-      <!-- TOSTAS & SARTENES -->
-      <div class="menu-grid" id="cat-tostas" data-color="#8B6914">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🍞</span><h3 class="menu-panel-title">Tostas &amp; Sartenes</h3></div>
-        <div class="menu-item section-header"><span>Tostas</span></div>
-        <div class="menu-item"><span class="item-name">Tosta con aceite de oliva, tomate natural y jamón serrano <em class="allerg-tag">🌾</em></span><span class="item-price">4,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Tosta con aceite de oliva, tomate natural, bonito y pimientos <em class="allerg-tag">🐟🌾</em></span><span class="item-price">4,50 €</span></div>
-        <div class="menu-item section-header"><span>Sartenes</span></div>
-        <div class="menu-item"><span class="item-name">Sartén Nº1 · Patatas, dos huevos fritos, taquitos de lomo y pimientos <em class="allerg-tag">🥚</em></span><span class="item-price">6,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Sartén Nº2 · Patatas, dos huevos fritos y salchicha frankfurt <em class="allerg-tag">🥚</em></span><span class="item-price">6,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Sartén Nº3 · Patatas, dos huevos fritos y chorizo o jamón serrano <em class="allerg-tag">🥚</em></span><span class="item-price">6,50 €</span></div>
-      </div>
-
-      <!-- CACHOPOS -->
-      <div class="menu-grid" id="cat-cachopos" data-color="#8B1A1A">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🥩</span><h3 class="menu-panel-title">Cachopos</h3></div>
-        <div class="menu-item featured"><span class="item-name">De ternera — Con jamón serrano y queso, patatas y pimientos <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">14,50 €</span></div>
-        <div class="menu-item featured"><span class="item-name">De pollo — Con jamón serrano y queso, patatas y ensalada LTC <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">14,50 €</span></div>
-      </div>
-
-      <!-- MERIENDAS -->
-      <div class="menu-grid" id="cat-meriendas" data-color="#9B4D8A">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🧁</span><h3 class="menu-panel-title">Meriendas</h3></div>
-        <div class="menu-note">Las meriendas se sirven de 17:00 h. a 20:00 h.</div>
-        <div class="menu-item"><span class="item-name">Café + Donuts o tostada de molde <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">2,90 €</span></div>
-        <div class="menu-item"><span class="item-name">Café + Bizcocho <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">3,30 €</span></div>
-        <div class="menu-item"><span class="item-name">Café + Pan tostado <em class="allerg-tag">🌾</em></span><span class="item-price">3,30 €</span></div>
-        <div class="menu-item"><span class="item-name">Café + Pincho o bollería <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">3,30 €</span></div>
-        <div class="menu-item"><span class="item-name">Café + Cruasán plancha <em class="allerg-tag">🥚🌾🥛🫘</em></span><span class="item-price">3,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Café + Sandwich mixto <em class="allerg-tag">🥚🌾🥛</em></span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Cola Cao + Pincho o bollería <em class="allerg-tag">🥚🥛🌾</em></span><span class="item-price">3,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Chocolate con churros <em class="allerg-tag">🥚🌾🥛</em></span><span class="item-price">4,00 €</span></div>
-      </div>
-
-      <!-- HELADOS -->
-      <div class="menu-grid" id="cat-helados" data-color="#2176AE">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🍦</span><h3 class="menu-panel-title">Helados &amp; Batidos</h3></div>
-        <div class="menu-item section-header"><span>Batidos</span></div>
-        <div class="menu-item"><span class="item-name">Batidos de fresa, vainilla o chocolate</span><span class="item-price">4,00 €</span></div>
-        <div class="menu-item"><span class="item-name">Batidos con nata</span><span class="item-price">4,50 €</span></div>
-        <div class="menu-item section-header"><span>Copas</span></div>
-        <div class="menu-item"><span class="item-name">Copa helado sencilla</span><span class="item-price">2,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Copa helado doble</span><span class="item-price">3,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Copa helado tres sabores</span><span class="item-price">4,50 €</span></div>
-        <div class="menu-item"><span class="item-name">Café solo con helado de vainilla y nata</span><span class="item-price">4,20 €</span></div>
-        <div class="menu-item section-header"><span>Helados individuales</span></div>
-        <div class="menu-item"><span class="item-name">Pirulo Cool limón</span><span class="item-price">2,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Choco Clack</span><span class="item-price">2,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Miko Lápiz</span><span class="item-price">2,20 €</span></div>
-        <div class="menu-item"><span class="item-name">Fantasmikos</span><span class="item-price">2,60 €</span></div>
-        <div class="menu-item"><span class="item-name">Fresa Extreme</span><span class="item-price">2,60 €</span></div>
-        <div class="menu-item"><span class="item-name">Vainilla Extreme</span><span class="item-price">2,60 €</span></div>
-        <div class="menu-item"><span class="item-name">Maxi Boom Pops</span><span class="item-price">2,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Maxi Boom Cookie</span><span class="item-price">2,90 €</span></div>
-        <div class="menu-item"><span class="item-name">Oreo Bombón</span><span class="item-price">2,90 €</span></div>
-        <div class="menu-item"><span class="item-name">Almendrado</span><span class="item-price">2,90 €</span></div>
-      </div>
-
-      <!-- CERVEZAS -->
-      <div class="menu-grid" id="cat-cervezas" data-color="#B8780A">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🍺</span><h3 class="menu-panel-title">Cervezas</h3></div>
-        <div class="menu-item"><span class="item-name">Caña de Estrella Galicia</span><span class="item-price">2,40 €</span></div>
-        <div class="menu-item"><span class="item-name">Caña tostada 1906</span><span class="item-price">2,60 €</span></div>
-        <div class="menu-item"><span class="item-name">Estrella Galicia, Mahou, San Miguel</span><span class="item-price">2,60 €</span></div>
-        <div class="menu-item"><span class="item-name">Voll-Damm doble Malta</span><span class="item-price">2,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Free Damm limón 00, Free Damm 0,0</span><span class="item-price">2,60 €</span></div>
-        <div class="menu-item"><span class="item-name">1906 Reserva, 1905 Red Vintage</span><span class="item-price">2,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Mahou tostada 0,0 · Mahou Maestra · Mahou sin gluten</span><span class="item-price">2,80 €</span></div>
-        <div class="menu-item"><span class="item-name">Mahou Mixta Limón</span><span class="item-price">2,60 €</span></div>
-        <div class="menu-item"><span class="item-name">Coronita, Desperado</span><span class="item-price">3,00 €</span></div>
-        <div class="menu-item featured"><span class="item-name">Grimbergen Double</span><span class="item-price">3,10 €</span></div>
-      </div>
-
-      <!-- VINOS -->
-      <div class="menu-grid" id="cat-vinos" data-color="#6B2D5E">
-        <div class="menu-panel-header"><span class="menu-panel-emoji">🍷</span><h3 class="menu-panel-title">Vinos</h3></div>
-        <div class="menu-item section-header"><span>Blancos</span></div>
-        <div class="menu-item wine-item"><span class="item-name">Campo Robles</span><span class="wine-prices"><span>1,10 € <small>copa</small></span><span>5,00 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Ribeiro Turbo</span><span class="wine-prices"><span>1,30 € <small>copa</small></span><span>6,00 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Xoven</span><span class="wine-prices"><span>1,50 € <small>copa</small></span><span>7,00 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Moscato Capetta</span><span class="wine-prices"><span>2,70 € <small>copa</small></span><span>13,00 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Verdejo Rueda Ramón Bilbao</span><span class="wine-prices"><span>2,70 € <small>copa</small></span><span>13,50 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Albariño Vall Do Sosego</span><span class="wine-prices"><span>2,80 € <small>copa</small></span><span>14,00 € <small>botella</small></span></span></div>
-        <div class="menu-item section-header"><span>Rosados</span></div>
-        <div class="menu-item wine-item"><span class="item-name">Rosado Navarra</span><span class="wine-prices"><span>1,10 € <small>copa</small></span><span>5,00 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Navarra Las Campanas</span><span class="wine-prices"><span>2,10 € <small>copa</small></span><span>10,00 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Prieto Picudo Peregrino</span><span class="wine-prices"><span>2,10 € <small>copa</small></span><span>10,50 € <small>botella</small></span></span></div>
-        <div class="menu-item section-header"><span>Tintos</span></div>
-        <div class="menu-item wine-item"><span class="item-name">Tinto Entreríos</span><span class="wine-prices"><span>1,10 € <small>copa</small></span><span>5,00 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Cosechero Tapas</span><span class="wine-prices"><span>1,30 € <small>copa</small></span><span>6,50 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Rioja Crianza Arca de Noé</span><span class="wine-prices"><span>2,50 € <small>copa</small></span><span>12,50 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Rioja Crianza Aradón</span><span class="wine-prices"><span>2,70 € <small>copa</small></span><span>13,50 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item"><span class="item-name">Rioja Crianza Ramón Bilbao</span><span class="wine-prices"><span>2,90 € <small>copa</small></span><span>14,50 € <small>botella</small></span></span></div>
-        <div class="menu-item wine-item featured"><span class="item-name">Ribera del Duero Cuatro Caminos</span><span class="wine-prices"><span>2,70 € <small>copa</small></span><span>13,50 € <small>botella</small></span></span></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════ PAGE: NOSOTROS ═══════════════ -->
-  <section id="nosotros" class="page">
-    <div class="about-wrap">
-      <div class="about-left reveal">
-        <p class="section-eyebrow">Sobre nosotros</p>
-        <h2>Más que una cafetería,<br><em>un lugar de encuentro</em></h2>
-        <p class="about-text">En Cortijo llevamos años siendo parte del tejido cotidiano de Gijón. Empezamos cada mañana con el primer café de los madrugadores y cerramos acompañando las últimas conversaciones de la noche.</p>
-        <p class="about-text">Nuestra cocina es sencilla y honesta: buenos productos, preparaciones directas y precios que no sorprenden. Desde el pincho más sencillo hasta el cachopo más asturiano, todo sale de la misma cocina con el mismo mimo.</p>
-        <p class="about-text">Si necesitas información sobre alérgenos o ingredientes, nuestro personal está siempre dispuesto a ayudarte — trabajamos bajo el Reglamento (EU) Nº 1169/2011.</p>
-      </div>
-      <div class="about-right reveal">
-        <div class="about-card">
-          <div class="about-logo-big">
-            <svg width="100" height="100" viewBox="0 0 60 60" fill="none">
-              <rect x="10" y="2" width="40" height="40" rx="2" transform="rotate(45 30 22)" fill="var(--accent)" opacity="0.12"/>
-              <rect x="16" y="8" width="28" height="28" rx="2" transform="rotate(45 30 22)" fill="var(--accent)" opacity="0.25"/>
-              <rect x="22" y="14" width="16" height="16" rx="1" transform="rotate(45 30 22)" fill="var(--accent)"/>
-            </svg>
-          </div>
-          <p class="about-card-brand">CORTIJO</p>
-          <p class="about-card-sub">Cafeterías &amp; Cervezerías</p>
-          <div class="about-divider"></div>
-          <div class="about-info-rows">
-            <div class="info-row"><span class="info-label">Dirección</span><span class="info-val">C/ Dos de mayo 26, bajo 3</span></div>
-            <div class="info-row"><span class="info-label">Ciudad</span><span class="info-val">Gijón, Asturias</span></div>
-            <div class="info-row"><span class="info-label">Teléfono</span><span class="info-val"><a href="tel:985021342">985 021 342</a></span></div>
-            <div class="info-row"><span class="info-label">Horario</span><span class="info-val">De Martes a Viernes - 07:00 — 24:00 h.</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="values reveal">
-      <div class="value-item"><span class="value-icon">☕</span><h4>Calidad constante</h4><p>El mismo café de siempre, preparado con el mismo cuidado de siempre</p></div>
-      <div class="value-item"><span class="value-icon">🤝</span><h4>Trato cercano</h4><p>Te conocemos por tu nombre y sabemos cómo te gusta el café</p></div>
-      <div class="value-item"><span class="value-icon">🍺</span><h4>Amplia selección</h4><p>De la Estrella Galicia a la Grimbergen, siempre hay algo nuevo que probar</p></div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ PAGE: CONTACTO ═══════════════ -->
-  <section id="contacto" class="page">
-    <div class="contact-wrap">
-      <div class="contact-left reveal">
-        <p class="section-eyebrow">Contacto</p>
-        <h2>¿Tienes alguna<br><em>pregunta?</em></h2>
-        <div class="contact-info">
-          <div class="contact-item">
-            <span class="contact-icon">📍</span>
-            <div><strong>Dirección</strong><p>C/ Dos de mayo 26, bajo 3<br>Gijón, Asturias</p></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📞</span>
-            <div><strong>Teléfono</strong><p><a href="tel:985021342">985 021 342</a></p></div>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">🕐</span>
-            <div><strong>horario</strong><p>De Martes a Viernes - 7:00 h. a 24:00 h. </p></div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-right reveal">
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required /></div>
-          <div class="form-group"><label for="email">Correo electrónico</label><input type="email" id="email" name="email" placeholder="tu@correo.com" required /></div>
-          <div class="form-group"><label for="asunto">Asunto</label><input type="text" id="asunto" name="asunto" placeholder="¿En qué podemos ayudarte?" /></div>
-          <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea></div>
-          <button type="submit" class="btn-submit">Enviar mensaje</button>
-          <p class="form-success" id="formSuccess">¡Mensaje enviado! Te responderemos en breve.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <svg width="24" height="24" viewBox="0 0 60 60" fill="none">
-          <rect x="15" y="5" width="30" height="30" rx="2" transform="rotate(45 30 20)" fill="var(--accent)"/>
-          <rect x="20" y="10" width="20" height="20" rx="2" transform="rotate(45 30 20)" fill="var(--bg)"/>
-          <rect x="25" y="15" width="10" height="10" rx="1" transform="rotate(45 30 20)" fill="var(--accent)"/>
+        <svg width="22" height="22" viewBox="0 0 60 60" fill="none">
+          <rect x="15" y="5" width="30" height="30" rx="2" transform="rotate(45 30 20)" fill="#b8341b"/>
+          <rect x="20" y="10" width="20" height="20" rx="2" transform="rotate(45 30 20)" fill="#faf8f4"/>
+          <rect x="25" y="15" width="10" height="10" rx="1" transform="rotate(45 30 20)" fill="#b8341b"/>
         </svg>
-        <span>CORTIJO</span>
+        CORTIJO
       </div>
-      <p class="footer-address">C/ Dos de mayo 26, bajo 3 · Gijón · <a href="tel:985021342">985 021 342</a></p>
-      <p class="footer-legal">Información de alérgenos disponible según Reglamento (EU) Nº 1169/2011</p>
+      <p class="footer-info">C/ Dos de mayo 26, bajo 3 · Gijón &nbsp;·&nbsp; <a href="tel:985021342">985 021 342</a></p>
+      <p class="footer-legal">Información de alérgenos según Reglamento (EU) Nº 1169/2011</p>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script>
+    /* Parallax hero card */
+    var card = document.getElementById('heroCard');
+    if (card) {
+      document.addEventListener('mousemove', function(e) {
+        var dx = (e.clientX - window.innerWidth  / 2) / (window.innerWidth  / 2);
+        var dy = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+        card.style.transform = 'perspective(800px) rotateY(' + (dx*6) + 'deg) rotateX(' + (-dy*4) + 'deg) translateY(-2px)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transition = 'transform 0.8s ease';
+        card.style.transform  = '';
+        setTimeout(function() { card.style.transition = ''; }, 800);
+      });
+    }
+  </script>
 </body>
 </html>

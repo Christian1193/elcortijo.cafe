@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Cortijo Cafeterías & Cervezerías</title>
+  <meta name="description" content="Contacta con Cortijo en Gijón. C/ Dos de mayo 26, bajo 3. Tel. 985 021 342." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <svg width="30" height="30" viewBox="0 0 60 60" fill="none">
+        <rect x="15" y="5" width="30" height="30" rx="2" transform="rotate(45 30 20)" fill="#b8341b"/>
+        <rect x="20" y="10" width="20" height="20" rx="2" transform="rotate(45 30 20)" fill="#faf8f4"/>
+        <rect x="25" y="15" width="10" height="10" rx="1" transform="rotate(45 30 20)" fill="#b8341b"/>
+      </svg>
+      <span class="nav-brand">CORTIJO</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="carta.html">Carta</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="carta.html">Carta</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <div class="contact-grid">
+
+      <div class="contact-info-block reveal">
+        <span class="eyebrow">Contacto</span>
+        <h1>¿Tienes alguna<br><em>pregunta?</em></h1>
+        <div class="contact-items">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Dirección</strong>
+              <p>C/ Dos de mayo 26, bajo 3<br>Gijón, Asturias</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <strong>Teléfono</strong>
+              <p><a href="tel:985021342">985 021 342</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <strong>Meriendas</strong>
+              <p>De 17:00 h. a 20:00 h.</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🌐</span>
+            <div>
+              <strong>Carta digital</strong>
+              <p><a href="carta.html">elcortijo-cafe.vercel.app/carta.html</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" placeholder="¿En qué podemos ayudarte?" />
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar mensaje</button>
+          <p class="form-success" id="formSuccess">¡Mensaje enviado! Te responderemos en breve.</p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg width="22" height="22" viewBox="0 0 60 60" fill="none">
+          <rect x="15" y="5" width="30" height="30" rx="2" transform="rotate(45 30 20)" fill="#b8341b"/>
+          <rect x="20" y="10" width="20" height="20" rx="2" transform="rotate(45 30 20)" fill="#faf8f4"/>
+          <rect x="25" y="15" width="10" height="10" rx="1" transform="rotate(45 30 20)" fill="#b8341b"/>
+        </svg>
+        CORTIJO
+      </div>
+      <p class="footer-info">C/ Dos de mayo 26, bajo 3 · Gijón &nbsp;·&nbsp; <a href="tel:985021342">985 021 342</a></p>
+      <p class="footer-legal">Información de alérgenos según Reglamento (EU) Nº 1169/2011</p>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    (function() {
+      var form        = document.getElementById('contactForm');
+      var formSuccess = document.getElementById('formSuccess');
+      if (!form) return;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        var valids = ['#nombre','#email','#mensaje'];
+        var ok = true;
+        valids.forEach(function(sel) {
+          var el = form.querySelector(sel);
+          if (!el.value.trim()) { el.style.borderColor = '#c0392b'; ok = false; }
+          else el.style.borderColor = '';
+        });
+        if (!ok) return;
+
+        var emailEl = form.querySelector('#email');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+          emailEl.style.borderColor = '#c0392b'; return;
+        }
+
+        var btn = form.querySelector('.btn');
+        btn.textContent = 'Enviando…'; btn.disabled = true;
+
+        try {
+          var res = await fetch('https://formspree.io/f/xlgkbnda', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          });
+          if (res.ok) {
+            form.reset();
+            formSuccess.classList.add('show');
+            setTimeout(function() { formSuccess.classList.remove('show'); }, 5000);
+          } else {
+            alert('Error al enviar. Inténtalo de nuevo.');
+          }
+        } catch(err) {
+          alert('Sin conexión. Inténtalo de nuevo.');
+        }
+        btn.textContent = 'Enviar mensaje'; btn.disabled = false;
+      });
+
+      form.querySelectorAll('input,textarea').forEach(function(el) {
+        el.addEventListener('input', function() { el.style.borderColor = ''; });
+      });
+    })();
+  </script>
+</body>
+</html>
